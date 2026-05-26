@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JMU Ltd — Company Analysis — 26 May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+ :root {
+  --iron: #0d1620; --iron-mid: #121e2c; --iron-light: #192840;
+  --steel: #2a6fa8; --steel-mid: #1e5a8e; --steel-pale: #c2dff2; --steel-ultra: #eef6fc;
+  --amber: #c07820; --amber-pale: #fef3e2;
+  --red: #b83020; --red-pale: #fdf2f0;
+  --emerald: #1a6a40; --emerald-pale: #edf8f2;
+  --offwhite: #f4f6f9; --white: #ffffff;
+  --text: #111b28; --text-mid: #2a3f56; --text-light: #4e6a85; --border: #d0dded;
+  --shadow: 0 4px 20px rgba(13,22,32,0.08); --shadow-lg: 0 12px 44px rgba(13,22,32,0.14);
+ }
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'IBM Plex Sans', sans-serif; background: var(--offwhite); color: var(--text); line-height: 1.65; font-size: 15px; }
+ .report-header { background: var(--iron); color: #fff; padding: 52px 64px 44px; position: relative; overflow: hidden; }
+ .report-header::before { content: ''; position: absolute; top: -100px; right: -80px; width: 520px; height: 520px; background: radial-gradient(circle, rgba(42,111,168,0.16) 0%, transparent 65%); pointer-events: none; }
+ .report-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--steel), #60aee0, transparent); }
+ .header-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+ .badge { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 3px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; white-space: nowrap; }
+ .badge-co { background: rgba(42,111,168,0.25); border: 1px solid rgba(42,111,168,0.5); color: #80c4f0; }
+ .badge-eos { background: rgba(192,120,32,0.22); border: 1px solid rgba(192,120,32,0.45); color: #f5c47a; }
+ .badge-date { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); color: rgba(255,255,255,0.5); }
+ h1 { font-family: 'Libre Baskerville', serif; font-size: 38px; line-height: 1.15; margin-bottom: 6px; letter-spacing: -0.4px; }
+ h1 span { color: #60b8f0; }
+ .report-subtitle { font-size: 14.5px; color: rgba(255,255,255,0.46); font-weight: 300; margin-bottom: 32px; }
+ .content-wrap { max-width: 1100px; margin: 0 auto; padding: 46px 64px 80px; }
+ .section-title { font-family: 'Libre Baskerville', serif; font-size: 27px; color: var(--iron); margin-bottom: 8px; letter-spacing: -0.3px; }
+ .section-lead { font-size: 14.5px; color: var(--text-mid); margin-bottom: 32px; line-height: 1.72; max-width: 740px; border-left: 3px solid var(--steel); padding-left: 16px; }
+ .subsection-title { font-family: 'Libre Baskerville', serif; font-size: 18px; color: var(--iron); margin: 34px 0 13px; padding-bottom: 9px; border-bottom: 1px solid var(--border); }
+ .alert { border-radius: 8px; padding: 16px 20px; margin: 16px 0; border-left: 4px solid; font-size: 13.5px; line-height: 1.65; }
+ .alert-critical { background: var(--red-pale); border-color: var(--red); }
+ .alert-warning { background: var(--amber-pale); border-color: var(--amber); }
+ .alert-ok { background: var(--emerald-pale); border-color: var(--emerald); }
+ .alert-info { background: var(--steel-ultra); border-color: var(--steel); }
+ .alert-title { font-weight: 600; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; font-family: 'IBM Plex Mono', monospace; }
+ .alert-critical .alert-title { color: var(--red); }
+ .alert-warning .alert-title { color: var(--amber); }
+ .alert-ok .alert-title { color: var(--emerald); }
+ .alert-info .alert-title { color: var(--steel); }
+ .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin: 18px 0; }
+ .profile-grid.two-col { grid-template-columns: 1fr 1fr; }
+ .profile-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; box-shadow: var(--shadow); }
+ .profile-card h4 { font-size: 10.5px; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; color: var(--steel); font-weight: 600; margin-bottom: 8px; }
+ .profile-card p { font-size: 13px; color: var(--text-mid); line-height: 1.62; }
+ .profile-card strong { color: var(--iron); }
+ .stat-value { font-size: 18px; font-weight: 600; color: #fff; line-height: 1.1; }
+ .stat-value.steel { color: #60b8f0; } .stat-value.red { color: #f09070; } .stat-value.emerald { color: #80e0a8; } .stat-value.amber { color: #f5c47a; }
+ .styled-list { list-style: none; padding: 0; margin: 8px 0; }
+ .styled-list li { padding: 6px 0 6px 22px; position: relative; font-size: 13.5px; color: var(--text-mid); border-bottom: 1px solid #edf2f7; line-height: 1.58; }
+ .styled-list li:last-child { border-bottom: none; }
+ .styled-list li::before { content: '→'; position: absolute; left: 0; color: var(--steel); font-weight: 700; }
+ .b { display: inline-flex; align-items: center; padding: 2px 7px; border-radius: 3px; font-size: 10.5px; font-weight: 600; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+ .b-red { background: #fdecea; color: var(--red); border: 1px solid #f5c4c1; }
+ .b-amber { background: var(--amber-pale); color: #9a5000; border: 1px solid #f5daa0; }
+ .b-green { background: var(--emerald-pale); color: var(--emerald); border: 1px solid #a8dfc0; }
+ .eos-bar-wrap { margin: 16px 0; }
+ .eos-score-big { font-size: 56px; font-weight: 700; color: var(--iron); font-family: 'Libre Baskerville', serif; line-height: 1; }
+ .report-footer { background: var(--iron); color: rgba(255,255,255,0.28); padding: 20px 64px; font-size: 11px; font-family: 'IBM Plex Mono', monospace; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; line-height: 1.7; }
+ @media (max-width: 900px) { .report-header, .content-wrap, .report-footer { padding-left: 20px; padding-right: 20px; } .header-stats, .profile-grid { grid-template-columns: 1fr; } h1 { font-size: 26px; } }
+</style>
+</head>
+<body>
+<header class="report-header">
+  <div class="header-meta">
+    <span class="badge badge-co">Company Analysis</span>
+    <span class="badge badge-eos">EOS Assessment</span>
+    <span class="badge badge-date">26 May 2026</span>
+  </div>
+  <h1>JMU Ltd</h1>
+  <p class="report-subtitle">JMU Ltd — Company Analysis</p>
+</header>
+  <!-- EXECUTIVE SUMMARY -->
+  <div class='content-wrap' style='padding-top:36px;'>
+    <h2 class='section-title'>Executive Summary</h2>
+    <p class='section-lead'>JMU Ltd — 26 May 2026</p>
+    <div class='alert alert-info'><div class='alert-title'>ℹ️ Note</div><p>JMU Ltd is a LIVE Mauritius company (File C10041). This is a sample placeholder report used to test the render_company_report.py tool.</p></div>
+
+    <div class="profile-grid" style="margin-top:16px;">
+<div class="profile-card"><h4>Status</h4><p class="stat-value emerald">LIVE</p></div>
+<div class="profile-card"><h4>File Number</h4><p class="stat-value steel">C10041</p></div>
+<div class="profile-card"><h4>Generated</h4><p class="stat-value steel">26 May 2026</p></div>
+</div>
+
+    <div class='alert alert-ok'><div class='alert-title'>✔️ Good</div><p>Populate with real research data before client use.</p></div>
+
+  </div>
+
+  <!-- COMPANY OVERVIEW -->
+  <div class='content-wrap'>
+    <h2 class='section-title'>Company Overview</h2>
+    <div class='profile-grid two-col'>
+    <div class="profile-card"><h4>Director</h4><p><strong>[Director name]</strong><br>[Role]</p></div>
+
+    <div class="profile-card"><h4>Ownership</h4><p>Placeholder — ownership data not yet populated.</p></div>
+
+    <div class="profile-card"><h4>Business Activity</h4><p>Sample business activity description.</p></div>
+
+    </div>
+  </div>
+
+<div class='content-wrap'><h2 class='section-title'>Likely Pains</h2>
+<ul class='styled-list'>
+  <li>This is a test record — no real pain points populated</li>
+  <li>Tool validation only</li>
+</ul>
+</div>
+
+
+  <!-- EOS ASSESSMENT -->
+  <div class='content-wrap'>
+    <h2 class='section-title'>EOS Suitability</h2>
+    <div class='eos-bar-wrap'>
+      <div class='eos-score-big'>N/A</div>
+      <div style='font-size:13px;color:var(--text-mid);margin-top:4px;'>Sample — Not Rated</div>
+    </div>
+    <p style='margin-top:8px;font-size:14px;color:var(--text-mid);'>This is a placeholder record used to validate the report rendering pipeline.</p>
+    
+  </div>
+
+<div class='content-wrap'><h2 class='section-title'>Discovery Questions</h2>
+<ol class='styled-list' style='list-style:decimal;padding-left:20px;'>
+  <li style='padding-left:4px;'>Sample question 1?</li>
+  <li style='padding-left:4px;'>Sample question 2?</li>
+</ol>
+</div>
+
+
+<div class='content-wrap'><h2 class='section-title'>Sources</h2>
+<ul class='styled-list'>
+  <li><span style='font-family:monospace;font-size:12px;color:var(--text-light);'>MNS Registry (onlinesearch.mns.mu)</span></li>
+  <li><span style='font-family:monospace;font-size:12px;color:var(--text-light);'>Sample JSON — tool test</span></li>
+</ul>
+</div>
+
+<footer class="report-footer">
+  <span>Generated by Tib for PKA — 26 May 2026</span>
+  <span>/home/openclaw/.openclaw/workspace/PKA/output/reports/jmu_ltd_report.html</span>
+</footer>
+</body>
+</html>
